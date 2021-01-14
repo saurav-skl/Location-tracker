@@ -64,19 +64,17 @@ const App = () => {
     fire.auth().signOut();
   };
 
-  
-
   useEffect(() => {
-    function authListener()  {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
-  };;
+    const authListener = () => {
+      fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+          clearInputs();
+          setUser(user);
+        } else {
+          setUser("");
+        }
+      });
+    };
   }, []);
 
   return (
