@@ -64,7 +64,10 @@ const App = () => {
     fire.auth().signOut();
   };
 
-  const authListener = () => {
+  
+
+  useEffect(() => {
+    function authListener()  {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
@@ -73,10 +76,7 @@ const App = () => {
         setUser("");
       }
     });
-  };
-
-  useEffect(() => {
-    authListener();
+  };;
   }, []);
 
   return (
